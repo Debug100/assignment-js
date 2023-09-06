@@ -83,7 +83,9 @@ Love \\ """ '''
 \"""\"""
 ""JavaScript""``*/
 
-console.log( "\'\'I\'m In \n \\\\ \n Love \\\\ \"\"\" \'\'\' \n \+\+ With \+\+ \n \\\"\"\"\\\"\"\" \n \"\"Javascript\"\"\'\'\'");
+console.log(
+  '\'\'I\'m In \n \\\\ \n Love \\\\ """ \'\'\' \n ++ With ++ \n \\"""\\""" \n ""Javascript""\'\'\''
+);
 
 //assignment 4====================================================================================
 let c = 21;
@@ -102,8 +104,72 @@ let DescriptionAaa = "Elzero Web School",
 
 let component17 = ` 
   <div>
-    <h3>${titleAaa}</h3>
+    <h3${titleAaa}</h3>
     <p>${DescriptionAaa}</p>
     <span>${DateAaa}</span>
   </div>`.repeat(3);
-document.write(component17 );
+document.write(component17);
+
+//4/9/2023-------------------------------------------------------------------------------------------------------------
+
+//assignment 1=================================
+// Replace ? With Arithmetic Operators
+let a10 = 10;
+let a20 = 20;
+let a15 = 15;
+let a3   = 3;
+let a190 = 190;
+let a400 = 400;
+console.log((((++a10 * a20) - (++a15 + ++a3)) + (a190 + --a10)) - a400);
+console.log (10 * 20 * 15 % 3  * 190  * 400 );
+
+
+//assignment 2=====================================
+let num = 3;
+
+// Solution One
+console.log(num + num); // 6
+
+// Solution Two
+console.log(num * num - num); // 6
+
+// Soultion Three
+console.log(++num + --num  - +true) ; // 6
+
+// Soultion Four
+console.log(num / num + ++num + true); // 6
+
+// Solution Five
+console.log(++num + +true) ; // 6
+
+// Solution Six
+console.log(++num); // 6
+
+//assignment 3===========================================
+let num2 = "10";
+// Solution One
+console.log(+num2 + +num2); // 20
+
+// Solution Two
+console.log( ++num2 + --num2 + -true ); // 20
+
+// Solution Three
+console.log(((num2 / num2) + +true) * num2); // 20
+
+// Solution Four
+console.log(+num2 + --num2 + --num2 - --num2); // 20
+
+//assignment 4============================================
+let points = 10;
+
+// Write Your Code Here
+
+points += 3;
+
+console.log(points ); // 13
+
+// Write Your Code Here
+
+points -= 5;
+
+console.log(points ); // 8;
