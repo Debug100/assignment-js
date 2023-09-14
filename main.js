@@ -117,12 +117,11 @@ document.write(component17);
 let a10 = 10;
 let a20 = 20;
 let a15 = 15;
-let a3   = 3;
+let a3 = 3;
 let a190 = 190;
 let a400 = 400;
-console.log((((++a10 * a20) - (++a15 + ++a3)) + (a190 + --a10)) - a400);
-console.log (10 * 20 * 15 % 3  * 190  * 400 );
-
+console.log(++a10 * a20 - (++a15 + ++a3) + (a190 + --a10) - a400);
+console.log(((10 * 20 * 15) % 3) * 190 * 400);
 
 //assignment 2=====================================
 let num = 3;
@@ -134,13 +133,13 @@ console.log(num + num); // 6
 console.log(num * num - num); // 6
 
 // Soultion Three
-console.log(++num + --num  - +true) ; // 6
+console.log(++num + --num - +true); // 6
 
 // Soultion Four
 console.log(num / num + ++num + true); // 6
 
 // Solution Five
-console.log(++num + +true) ; // 6
+console.log(++num + +true); // 6
 
 // Solution Six
 console.log(++num); // 6
@@ -151,10 +150,10 @@ let num2 = "10";
 console.log(+num2 + +num2); // 20
 
 // Solution Two
-console.log( ++num2 + --num2 + -true ); // 20
+console.log(++num2 + --num2 + -true); // 20
 
 // Solution Three
-console.log(((num2 / num2) + +true) * num2); // 20
+console.log((num2 / num2 + +true) * num2); // 20
 
 // Solution Four
 console.log(+num2 + --num2 + --num2 - --num2); // 20
@@ -166,10 +165,89 @@ let points = 10;
 
 points += 3;
 
-console.log(points ); // 13
+console.log(points); // 13
 
 // Write Your Code Here
 
 points -= 5;
 
-console.log(points ); // 8;
+console.log(points); // 8;
+
+// 14/9/2023
+
+//assignment 1==================================================
+// Examples
+console.log(100_000); // 100000
+console.log(100000); // 100000
+console.log(5e4 + 5e4); // 100000
+
+// Your Solutions
+console.log(Math.max(500,100,100000)); // 100000
+console.log(Math.round(parseFloat(100000.4))); // 100000
+console.log(10 ** 5); // 100000
+console.log(+(100000.4444).toFixed()); // 100000
+console.log(Number("100000")); // 100000
+console.log(parseInt(100000.99)); // 100000
+console.log(Math.floor(100000.9)); // 100000
+console.log(Math.ceil(99999.1)); // 100000
+console.log(Math.round(100000,4)); // 100000
+console.log(Math.trunc(100000.555)); // 100000
+
+//assignment 2==================================================
+console.log(-Number.MIN_SAFE_INTEGER); // 9007199254740991
+
+//assignment 3==================================================
+console.log(
+  (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER) *
+    (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER) *
+    (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER) *
+    (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER)
+); // 16
+console.log(`${Number.MAX_SAFE_INTEGER}`.length) 
+console.log(Number.MAX_SAFE_INTEGER.toFixed().length)
+
+//assignment 4==================================================
+let myVar = "100.56789 Views";
+
+console.log(parseInt(myVar)); // 100
+console.log(+parseFloat(myVar).toFixed(2)); // 100.57
+
+//assignment 5===================================================
+let num1 = 10;
+
+console.log(+(Number.isInteger(num1)) + +(Number.isInteger(num1))); // 2
+
+//assignment 6===================================================
+let flt = 10.4;
+
+console.log(Math.round(flt)); // 10
+console.log(Math.floor(flt)); // 10
+console.log(Math.trunc(flt)); // 10
+console.log(parseInt(flt)); // 10
+console.log(+flt.toFixed(0)); // 10
+
+//assignment 7=====================================================
+console.log(Math.floor(Math.random() * 5)); // 0 || 1 || 2 || 3 || 4
+Math.floor(Math.random() * 5);
+
+//==============================================================================================================================
+
+//assignment 1=======================================================
+let userName = "Elzero";
+console.log(userName.charAt(0).toLowerCase()); // e
+console.log(userName[0].toLowerCase()); // e
+console.log(userName.slice(0 ,1).toLowerCase()); // e
+console.log(userName.substring(0 ,1).toLowerCase()); // e
+console.log(userName.substr(0,1).toLowerCase()); // e
+console.log(userName[0].toLowerCase().repeat(3)); // eee
+
+//assignment 2=======================================================
+let word = "Elzero";
+let letterZ = "z";
+let letterE = "e";
+let letterO = "O";
+
+console.log(word.includes(letterZ)); // True
+console.log(word.startsWith(letterE.toUpperCase())); // True
+console.log(word.endsWith(letterO.toLowerCase())); // True
+
