@@ -182,7 +182,7 @@ console.log(100000); // 100000
 console.log(5e4 + 5e4); // 100000
 
 // Your Solutions
-console.log(Math.max(500,100,100000)); // 100000
+console.log(Math.max(500, 100, 100000)); // 100000
 console.log(Math.round(parseFloat(100000.4))); // 100000
 console.log(10 ** 5); // 100000
 console.log(+(100000.4444).toFixed()); // 100000
@@ -190,7 +190,7 @@ console.log(Number("100000")); // 100000
 console.log(parseInt(100000.99)); // 100000
 console.log(Math.floor(100000.9)); // 100000
 console.log(Math.ceil(99999.1)); // 100000
-console.log(Math.round(100000,4)); // 100000
+console.log(Math.round(100000, 4)); // 100000
 console.log(Math.trunc(100000.555)); // 100000
 
 //assignment 2==================================================
@@ -203,8 +203,8 @@ console.log(
     (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER) *
     (++Number.MAX_SAFE_INTEGER + ++Number.MIN_SAFE_INTEGER)
 ); // 16
-console.log(`${Number.MAX_SAFE_INTEGER}`.length) 
-console.log(Number.MAX_SAFE_INTEGER.toFixed().length)
+console.log(`${Number.MAX_SAFE_INTEGER}`.length);
+console.log(Number.MAX_SAFE_INTEGER.toFixed().length);
 
 //assignment 4==================================================
 let myVar = "100.56789 Views";
@@ -215,7 +215,7 @@ console.log(+parseFloat(myVar).toFixed(2)); // 100.57
 //assignment 5===================================================
 let num1 = 10;
 
-console.log(+(Number.isInteger(num1)) + +(Number.isInteger(num1))); // 2
+console.log(+Number.isInteger(num1) + +Number.isInteger(num1)); // 2
 
 //assignment 6===================================================
 let flt = 10.4;
@@ -236,9 +236,9 @@ Math.floor(Math.random() * 5);
 let userName = "Elzero";
 console.log(userName.charAt(0).toLowerCase()); // e
 console.log(userName[0].toLowerCase()); // e
-console.log(userName.slice(0 ,1).toLowerCase()); // e
-console.log(userName.substring(0 ,1).toLowerCase()); // e
-console.log(userName.substr(0,1).toLowerCase()); // e
+console.log(userName.slice(0, 1).toLowerCase()); // e
+console.log(userName.substring(0, 1).toLowerCase()); // e
+console.log(userName.substr(0, 1).toLowerCase()); // e
 console.log(userName[0].toLowerCase().repeat(3)); // eee
 
 //assignment 2=======================================================
@@ -251,3 +251,224 @@ console.log(word.includes(letterZ)); // True
 console.log(word.startsWith(letterE.toUpperCase())); // True
 console.log(word.endsWith(letterO.toLowerCase())); // True
 
+//16/9/2023
+
+// 31 / 32
+
+//assignment 1========================================================
+console.log(100 == "100"); // true
+console.log(100 != 1000); // true
+console.log(110 > 100 > 10 < 20); // true
+console.log(-10 == "-10"); // true
+console.log(-(-50) > +"-40"); // true
+console.log(+10 <= -"-40"); // true
+console.log(+"10" === 10); // true
+console.log(!(20 == false)); // true
+
+//assignment 2========================================================
+let num3 = 10;
+let num4 = 20;
+
+console.log(num3 != num4); // true
+console.log(num3 !== num4); // true
+console.log(num4 > num3); // true
+console.log(num3 < num4); // true
+console.log(typeof num3 === typeof num4); // true
+console.log(num3 == num4 - num3); // true
+
+//assignment 3========================================================
+let a1 = 20;
+let b1 = 30;
+let c1 = 10;
+
+console.log((a1 != b1 && a1 > c1) || a1 == b1); // true
+console.log(a1 <= b1 || a1 == c1); // true
+console.log(!(a1 > b1) && !(a1 == b1) && !(a1 == c1) && !(a1 == c1)); // true
+
+//==============================================================================================================================
+
+// 33 /37
+
+//assignment 1=========================================================
+
+// Test Case 1
+let num5 = 20; // "009"
+
+if (num5 < 10) {
+  console.log(`00${num5}`);
+  5;
+} else if (num5 > 10 && num5 < 100) {
+  console.log(`0${num5}`);
+} else if (num5 >= 100) {
+  console.log(num5);
+}
+
+//assignment 2=============================================================
+
+let num8 = 9;
+let str = "9";
+let str2 = "20";
+
+// Output
+("{num8} Is The Same Value As {str}");
+("{num8} Is The Same Value As {str} But Not The Same Type");
+("{num8} Is Not The Same Value Or The Same Type As {str2}");
+("{str} Is The Same Type As {str2} But Not The Same Value");
+
+if (num8 == str) {
+  console.log(`{num8} Is The Same Value As {str}`);
+}
+
+if (num8 == str && num8 !== str) {
+  console.log(`{num8} Is The Same Value As {str} But Not The Same Type`);
+}
+
+if (num8 != str2 || num8 !== str2) {
+  console.log(`{num8} Is Not The Same Value Or The Same Type As {str2}`);
+}
+
+if (typeof str === typeof str2 && str != str2) {
+  console.log("{str} Is The Same Type As {str2} But Not The Same Value");
+}
+
+//assignment 3============================================================
+
+let num9 = 10;
+let num10 = 30;
+let num11 = "30";
+
+// Needed Output
+("30 Is Larger Than 10 And Type string Not The Same Type As number");
+("30 Is Larger Than 10 And Value Is The Same As 30 And Type string Not The Same Type As number");
+("{num3} Value And Type Is Not The Same As {num1} And Type Is Not The Same As {num2}");
+
+if (num11 > num9 && num11 !== num9 && num11 == num10 && num11 !== num10) {
+  console.log(
+    "30 Is Larger Than 10 And Type string Not The Same Type As number" +
+      "\n" +
+      "30 Is Larger Than 10 And Value Is The Same As 30 And Type string Not The Same Type As number" +
+      "\n" +
+      "{num3} Value And Type Is Not The Same As {num1} And Type Is Not The Same As {num2}"
+  );
+}
+
+//assignment 4===============================================================
+
+// Edit What You Want Here
+
+let num1a = 1;
+let num2a = 0;
+let num3a = +"1";
+let num4a = 23;
+
+/*
+  Do Not Edit Below This Line
+  Needed Output
+  True 7 Times
+*/
+
+// Condition 1
+
+if (num1a > num2a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+
+// num1a = 11 [pre increment]
+
+// Condition 2
+
+if (num1a > num2a && num1a < num4a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+
+// Condition 3
+
+if (num1a > num2a && num1a === num3a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+//num1a = 10
+// Condition 4
+
+if (num1a + num2a < num4a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+//numa1 = 9
+// Condition 5
+
+if (num1a + num3a < num4a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+
+// Condition 6
+
+if (num1a + num2a + num3a < num4a) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+
+// Condition 7
+
+if (num4a - (num1a + num3a) + num2a === 21) {
+  console.log("True");
+} else {
+  console.log("False");
+}
+
+// 38 / 39
+
+let day = "   friday  ";
+
+day = day.trim();
+day = day.charAt(0).toUpperCase() + day.substring(1); // هيقطع من واحد لحد الاخر
+console.log(day);
+// You Need To Remove Spaces And Make First Letter Capital => Friday
+
+// let day = "Friday";
+// let day = "Saturday";
+// let day = "Sunday";
+// Output => "No Appointments Available"
+
+// let day = "Monday";
+// let day = "Thursday";
+// Output => "From 10:00 AM To 5:00 PM"
+
+// let day = "Tuesday";
+// Output => "From 10:00 AM To 6:00 PM"
+
+// let day = "Wednesday";
+// Output => "From 10:00 AM To 7:00 PM"
+
+// let day= "  World";
+// Output => "Its Not A Valid Day"
+
+switch (day) {
+  case "Friday":
+  case "Saturday":
+  case "Sunday":
+    console.log("No Appointments Available");
+    break;
+  case "Monday":
+  case "Thursday":
+    console.log("From 10:00 AM To 5:00 PM");
+    break;
+  case "Tuesday":
+    console.log("From 10:00 AM To 6:00 PM");
+    break;
+  case "Wednesday":
+    console.log("From 10:00 AM To 7:00 PM");
+    break;
+  case "World":
+    console.log("Its Not A Valid Day");
+    break;
+}
