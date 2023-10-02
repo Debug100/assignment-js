@@ -472,3 +472,79 @@ switch (day) {
     console.log("Its Not A Valid Day");
     break;
 }
+
+// 30 / 9 / 2023=========================================================================================
+// 40 / 47 Array=========================================================================================
+
+//assignment 1==============================
+let myFriends = ["Ahmed", "Elham", "Osama", "Gamal"];
+let numA = 3;
+
+// Method 1
+console.log(myFriends.slice(myFriends.indexOf("Ahmed"), numA)); // ["Ahmed", "Elham", "Osama"];
+
+myFriends.pop();
+// Method 2
+console.log(myFriends); // ["Ahmed", "Elham", "Osama"];
+
+//assignment 2===============================
+let friends = ["Ahmed", "Eman", "Osama", "Gamal"];
+
+// Write Your Code Here
+
+friends.pop();
+friends.shift();
+
+console.log(friends); // ["Eman", "Osama"]
+
+//assignment 3================================
+let arrOne = ["C", "D", "X"];
+let arrTwo = ["A", "B", "Z"];
+let finalArr = [];
+
+// Write One Single Line Of Code
+finalArr = arrOne.concat(arrTwo).sort().reverse() ; // anthor solution
+finalArr = [arrTwo.pop()].concat(arrOne.reverse(), arrTwo.reverse());
+
+console.log(finalArr); // ["Z", "X", "D", "C", "B", "A"]
+
+//assignment 4==================================
+let website = "Go";
+let words = [`${website}ogle`, "Facebook", ["Elzero", "Web", "School"]];
+
+console.log(words.pop()[0].slice(website.length).toUpperCase()); // ZERO
+
+//assignment 5===================================
+let needle = "JS";
+let haystack = ["PHP", "JS", "Python"];
+
+// Write 3 Solutions
+
+if (haystack.includes(needle)) {
+  console.log("found");
+} else {
+  console.log("lol😎");
+}
+
+if (haystack.indexOf(needle) === 1) {
+  console.log("found");
+} else {
+  console.log("lol😎");
+}
+if (haystack.lastIndexOf(needle) === 1) {
+  console.log("found");
+} else {
+  console.log("lol😎");
+}
+if (needle === haystack[1]){
+  console.log("found")
+}
+//assignment 6======================================
+let arr1 = ["A", "C", "X"];
+let arr2 = ["D", "E", "F", "Y"];
+let allArrs = [];
+
+arr2.shift();
+arr2.shift();
+allArrs = arr2.shift().concat(arr1.pop(), arr2).toLowerCase();
+console.log(allArrs); // fxy
