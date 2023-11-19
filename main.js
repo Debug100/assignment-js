@@ -503,7 +503,7 @@ let arrTwo = ["A", "B", "Z"];
 let finalArr = [];
 
 // Write One Single Line Of Code
-finalArr = arrOne.concat(arrTwo).sort().reverse() ; // anthor solution
+finalArr = arrOne.concat(arrTwo).sort().reverse(); // anthor solution
 finalArr = [arrTwo.pop()].concat(arrOne.reverse(), arrTwo.reverse());
 
 console.log(finalArr); // ["Z", "X", "D", "C", "B", "A"]
@@ -536,8 +536,8 @@ if (haystack.lastIndexOf(needle) === 1) {
 } else {
   console.log("lol😎");
 }
-if (needle === haystack[1]){
-  console.log("found")
+if (needle === haystack[1]) {
+  console.log("found");
 }
 //assignment 6======================================
 let arr1 = ["A", "C", "X"];
@@ -548,3 +548,176 @@ arr2.shift();
 arr2.shift();
 allArrs = arr2.shift().concat(arr1.pop(), arr2).toLowerCase();
 console.log(allArrs); // fxy
+
+// 27 /10 / 2023
+//  48 /53
+
+document.write(`<h2>assignment1===========================</h2>`);
+
+let start = 10;
+let end = 100;
+let exclude = 40;
+
+// Output
+// 10;
+// 20;
+// 30;
+// 50;
+// 60;
+// 70;
+// 80;
+// 90;
+// 100;
+
+for (i = start; i <= end; i += start) {
+  if (i !== exclude) {
+    document.write(`<p>${i}</p>`);
+  }
+}
+
+document.write(`<h2>assignment2===========================</h2>`);
+
+let start1 = 10;
+let end1 = 0;
+let stop1 = 3;
+
+// Output
+// 10
+// 09
+// 08
+// 07
+// 06
+// 05
+// 04
+// 03
+
+for (i = start1; i >= stop1; i--) {
+  document.write(`<p>${i}</p>`);
+}
+
+document.write(`<h2>assignment3===========================</h2>`);
+let start2 = 1;
+let end2 = 6;
+let breaker2 = 2;
+
+// Output
+// 1
+// -- 2
+// -- 4
+// 2
+// -- 2
+// -- 4
+// 3
+// -- 2
+// -- 4
+// 4
+// -- 2
+// -- 4
+// 5
+// -- 2
+// -- 4
+// 6
+// -- 2
+// -- 4
+for (i = start2; i <= end2; i++) {
+  document.write(`<p>${i}</p>`);
+  for (j = breaker2; j < end2; j += breaker2) {
+    document.write(`<p>  --  ${j}</p>`);
+  }
+}
+
+document.write(`<h2>assignment4===========================</h2>`);
+let index = 10;
+let jump = 2;
+
+for (;;) {
+  if (index > 2) {
+    document.write(`<p>${index}</p>`);
+  } else {
+    break;
+  }
+  index -= jump;
+}
+
+// Output
+// 10;
+// 8;
+// 6;
+// 4;
+
+document.write(`<h2>assignment5===========================</h2>`);
+let friends2 = ["Ahmed", "Sayed", "Eman", "Mahmoud", "Ameer", "Osama", "Sameh"];
+let letter = "a";
+
+// Output
+// "1 => Sayed"
+// "2 => Eman"
+// "3 => Mahmoud"
+// "4 => Osama"
+// "5 => Sameh"
+
+for (i = letter.indexOf("a"); i < friends2.length; i++) {
+  if (friends2[i].indexOf(letter.toUpperCase()) != -letter.length) {
+    continue;
+  }
+  document.write(`<p>${friends2[i]}</p>`);
+}
+
+document.write(`<h2>assignment6===========================</h2>`);
+let start3 = 0;
+let swappedName = "elZerO";
+
+// Output
+// "ELzERo"
+
+for (i = start3; i < swappedName.length; i++) {
+  let character = swappedName[i];
+  if (character === swappedName[i].toLowerCase()) {
+    document.write(character.toUpperCase());
+  } else if (character === swappedName[i].toUpperCase()) {
+    document.write(character.toLocaleLowerCase());
+  }
+}
+
+document.write(`<h2>assignment7===========================</h2>`);
+let start4 = 0;
+let mix = [1, 2, 3, "A", "B", "C", 4];
+
+// Output
+2;
+3;
+4;
+// i = ++start4 ;
+i = 0;
+for (; i < mix.length; i++) {
+  if ([i] == 0) {
+    continue;
+  }
+  if (typeof mix[i] === "string") {
+    continue;
+  }
+  document.write(`<p>${mix[i]}</p>`);
+}
+
+document.write(`<h2>assignment8===========================</h2>`);
+
+let friends1 = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
+let index1 = 0;
+let counter = 0;
+
+// Output
+("1 => Sayed");
+("2 => Mahmoud");
+
+while (index1 < friends1.length) {
+  // friends1.sort();
+  if (
+    typeof friends1[index1] === "number" ||
+    friends1[index1].startsWith("A")
+  ) {
+    index1++;
+    continue;
+  }
+  document.write(`<div>"${++counter} => ${friends1[index1]}"</div>`);
+  index1++;
+}
