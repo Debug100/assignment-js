@@ -721,3 +721,213 @@ while (index1 < friends1.length) {
   document.write(`<div>"${++counter} => ${friends1[index1]}"</div>`);
   index1++;
 }
+
+// الاسبوع 8
+// 26/11/2023
+// 57 / 63
+
+document.write(`<h2>assignment1===========================</h2>`);
+
+function sayHello(theName, theGender) {
+  if (theGender == "Male") {
+    theGender = "Mr";
+  } else if (theGender === "Female") {
+    theGender = "Miss";
+  } else {
+    theGender = "";
+  }
+  document.write(`<div>Hello ${theGender} ${theName} </div>`);
+}
+
+// Needed Output
+sayHello("Osama", "Male"); // "Hello Mr Osama"
+sayHello("Eman", "Female"); // "Hello Miss Eman"
+sayHello("Sameh"); // "Hello Sameh"
+
+document.write(`<h2>assignment2===========================</h2>`);
+
+function calculate(firstNum, secondNum, operation) {
+  if (secondNum === undefined) {
+    document.write("Second Number Not Found");
+  }
+  if (operation === "add") {
+    operation = firstNum + secondNum;
+    document.write(`<div>${operation}</div>`);
+  } else if (operation === undefined) {
+    operation = firstNum + secondNum;
+    document.write(`<div>${operation}</div>`);
+  }
+  if (operation === "subtract") {
+    operation = firstNum - secondNum;
+    document.write(`<div>${operation}</div>`);
+  }
+  if (operation === "multiply") {
+    operation = firstNum * secondNum;
+    document.write(`<div>${operation}</div>`);
+  }
+}
+
+// Needed Output
+calculate(20); // Second Number Not Found
+calculate(20, 30); // 50
+calculate(20, 30, "add"); // 50
+calculate(20, 30, "subtract"); // -10
+calculate(20, 30, "multiply"); // 600
+
+document.write(`<h2>assignment3===========================</h2>`);
+// function ageInTime(theAge) {
+//   let birthYear = 2000;
+//   let birthMonth = 4;
+//   let birthDay = 11;
+//   let birthHour = 6;
+//   let birthMinutes = 15;
+//   let birthSecond = 59;
+
+//   let currentYear = 2023;
+//   let currentMonth = 12;
+//   let currentDay = 4;
+//   let currentHour = 23;
+//   let currentMiuntes = 30;
+//   let currentSecond = 20;
+
+//   let years = currentYear - birthYear;
+//   let months = years * 12 - (birthMonth + (12 - currentMonth));
+//   let days = months * 30 - (birthDay + (30 - currentDay));
+//   let hours = days * 24 - (birthHour + (24 - currentHour));
+//   let minutes = hours * 60 - (birthMinutes + (60 - currentMiuntes));
+//   let seconds = minutes * 60 - (birthSecond + (60 - currentSecond));
+
+//   if (years <= 10 || years >= 100){
+//     theAge = "Age Out Of Range"
+//   }else{
+//     theAge = `Year:${years}\nMonth:${months}\nDay:${days}\nHours:${hours}\nMinutes:${minutes}\nSeconds:${seconds}`;
+//   }
+
+
+//   return theAge;
+// }
+// console.log(ageInTime());
+
+// Needed Output
+// ageInTime(24); // Age Out Of Range
+// ageInTime(38); // Months Example => 456 Months
+
+function ageInTime(theAge) {
+  if (theAge <= 10 || theAge >= 100){
+    console.log( "Age Out Of Range")
+  }else{
+    console.log(`You Have ${theAge} Years`);
+    console.log(`You Have ${theAge * 12} Months`);
+    console.log(`You Have ${theAge * 12 * 4} Week`);
+    console.log(`You Have ${theAge * 12 * 4 * 7} Days`);
+    console.log(`You Have ${theAge * 12 * 4 * 7 * 24} Hours`);
+    console.log(`You Have ${theAge * 12 * 4 * 7 * 24 * 60} Minutes`);
+    console.log(`You Have ${theAge * 12 * 4 * 7 * 24 * 60 * 60} Seconds`);
+  }
+}
+
+// Needed Output
+ageInTime(110); // Age Out Of Range
+ageInTime(31); // Months Example => 456 Months
+
+document.write(`<h2>assignment4===========================</h2>`);
+function checkStatus(a, b, c) {
+  var abc = [a, b, c];
+  for (i = 0; i < abc.length; i++) {
+    if (typeof abc[i] === "string") {
+      a = abc[i];
+    }
+    if (typeof abc[i] === "number") {
+      b = abc[i];
+    }
+    if (typeof abc[i] === "boolean") {
+      c = abc[i];
+      if (c === true) {
+        c = ` You Are Available For Hire`;
+      } else if (c === false) {
+        c = `You Are Not Available For Hire`;
+      }
+    }
+  }
+  document.write(` <div> Hello ${a}, Your Age Is ${b} , ${c} </div>`);
+}
+
+// Needed Output
+checkStatus("Osama", 38, true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(38, "Osama", true); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(true, 38, "Osama"); // "Hello Osama, Your Age Is 38, You Are Available For Hire"
+checkStatus(false, "Osama", 38); // "Hello Osama, Your Age Is 38, You Are Not Available For Hire"
+
+document.write(`<h2>assignment5===========================</h2>`);
+function createSelectBox(startYear, endYear) {
+  createSelectBox = [startYear, endYear];
+  document.write(`<select>`);
+  for (i = startYear; i <= endYear; i++) {
+    document.write(`<option>${i}<option/>`);
+  }
+  document.write(`</select>`);
+}
+createSelectBox(2000, 2021);
+
+document.write(`<h2>assignment6===========================</h2>`);
+function multiply(...numbers) {
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] === "string") {
+      continue;
+    }
+    numbers[i] = Math.floor(numbers[i]);
+    result = numbers[i] * numbers[++i];
+    document.write(`<div>${result}</div>`);
+  }
+}
+
+multiply(10, 20); // 200
+multiply("A", 10, 30); // 300
+multiply(100.5, 10, "B"); // 1000
+
+function transformation(...numbers) {
+  let month = 10;
+  month = numbers[month - 1];
+  console.log(month);
+}
+
+transformation(
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+);
+const monthName = function myAwesomeFunction(monthNumber) {
+  let allMonth = [
+    "Unknown",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  for ( let i = 0; i <= allMonth.length; i++) {
+    if (monthNumber === i) {
+      monthNumber = allMonth[i];
+      // return allMonth[i];
+    }
+  }
+  return monthNumber;
+}
+
+console.log(monthName(4));
