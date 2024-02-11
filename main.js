@@ -803,7 +803,6 @@ document.write(`<h2>assignment3===========================</h2>`);
 //     theAge = `Year:${years}\nMonth:${months}\nDay:${days}\nHours:${hours}\nMinutes:${minutes}\nSeconds:${seconds}`;
 //   }
 
-
 //   return theAge;
 // }
 // console.log(ageInTime());
@@ -813,9 +812,9 @@ document.write(`<h2>assignment3===========================</h2>`);
 // ageInTime(38); // Months Example => 456 Months
 
 function ageInTime(theAge) {
-  if (theAge <= 10 || theAge >= 100){
-    console.log( "Age Out Of Range")
-  }else{
+  if (theAge <= 10 || theAge >= 100) {
+    console.log("Age Out Of Range");
+  } else {
     console.log(`You Have ${theAge} Years`);
     console.log(`You Have ${theAge * 12} Months`);
     console.log(`You Have ${theAge * 12 * 4} Week`);
@@ -921,13 +920,123 @@ const monthName = function myAwesomeFunction(monthNumber) {
     "November",
     "December",
   ];
-  for ( let i = 0; i <= allMonth.length; i++) {
+  for (let i = 0; i <= allMonth.length; i++) {
     if (monthNumber === i) {
       monthNumber = allMonth[i];
       // return allMonth[i];
     }
   }
   return monthNumber;
-}
+};
 
 console.log(monthName(4));
+
+function calc(num1, num2) {
+  return num1 + num2;
+}
+
+console.log(calc(10, 20));
+
+// week 9
+
+console.log("Task 1====================================🧐");
+
+function getDetails(zName, zAge, zCountry) {
+  function namePattern(zName) {
+    return `${zName.slice(0, zName.indexOf(" "))}${zName
+      .substr(zName.indexOf(" "), 2)
+      .toUpperCase()}`;
+    // return `${zName.split(" ")[0]} ${zName.split(" ")[1][0].toUpperCase()}`;
+  }
+
+  function ageWithMessage(zAge) {
+    return `Your Age Is ${zAge.split(" ")[0]}`;
+  }
+
+  function countryTwoLetters(zCountry) {
+    return `You Live In ${zCountry.slice(0, 2).toUpperCase()}`;
+  }
+
+  function fullDetails() {
+    return (
+      namePattern(zName) +
+      "," +
+      ageWithMessage(zAge) +
+      " ," +
+      countryTwoLetters(zCountry)
+    );
+  }
+  return fullDetails();
+}
+
+console.log(getDetails("Osama Mohamed", "38 Is My Age", "Egypt"));
+
+console.log(getDetails("Ahmed ali", "32 Is The Age", "Syria"));
+
+console.log("Task 2 ========================================😁");
+
+function itsMe1() {
+  return `Iam A Normal Function`;
+}
+
+const itsMe2 = () => `Iam An Arrow Function`;
+
+console.log(itsMe1()); // Iam A Normal Function
+console.log(itsMe2()); // Iam An Arrow Function
+
+function urlCreate1(protocol, web, tld) {
+  return `${protocol}://www.${web}.${tld}`;
+}
+let urlCreate2 = (protocol, web, tld) => `${protocol}://www.${web}.${tld}`;
+
+console.log(urlCreate1("https", "elzero", "org")); // https://www.elzero.org
+console.log(urlCreate2("https", "elzero", "org")); // https://www.elzero.org
+
+console.log("Task 3 ========================================😁");
+
+function checker1(zName) {
+  return function (status) {
+    return function (salary) {
+      return status === "Available"
+        ? `${zName}, My Salary Is ${salary}`
+        : `Iam Not Avaialble`;
+    };
+  };
+}
+
+const checker2 = (zName) => (status) => (salary) =>
+  status === "Available"
+    ? `${zName}, My Salary Is ${salary}`
+    : `Iam Not Avaialble`;
+
+console.log(checker1("Osama")("Available")(4000)); // Osama, My Salary Is 4000
+console.log(checker1("Ahmed")("Not Available")()); // Iam Not Avaialble
+console.log(checker2("Osama")("Available")(4000)); // Osama, My Salary Is 4000
+console.log(checker2("Ahmed")("Not Available")()); // Iam Not Avaialble
+
+console.log("Task 4 ========================================😭 ");
+
+function specialMix(...data) {
+  let sum = 0;
+  let allStrings = true;
+
+  for (i = 0; i < data.length; i++) {
+    if (!isNaN(parseInt(data[i]))) {
+      data[i] = parseInt(data[i]);
+      sum += data[i];
+      allStrings = false
+    }
+  }
+
+  if (allStrings) {
+    return "All Is String";
+  }
+
+  return sum;
+}
+
+console.log(specialMix(1, "j", 2, "k")); // 60
+console.log(specialMix(10, 20, 30)); // 60
+console.log(specialMix("10Test", "Testing", "20Cool")); // 30
+console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
+console.log(specialMix("Test", "Cool", "Test")); //All Is String
