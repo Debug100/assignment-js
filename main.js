@@ -1024,7 +1024,7 @@ function specialMix(...data) {
     if (!isNaN(parseInt(data[i]))) {
       data[i] = parseInt(data[i]);
       sum += data[i];
-      allStrings = false
+      allStrings = false;
     }
   }
 
@@ -1040,3 +1040,290 @@ console.log(specialMix(10, 20, 30)); // 60
 console.log(specialMix("10Test", "Testing", "20Cool")); // 30
 console.log(specialMix("Testing", "10Testing", "40Cool")); // 50
 console.log(specialMix("Test", "Cool", "Test")); //All Is String
+
+// week 10
+
+console.log("assignment 1=====================");
+
+let mix1 = [1, 2, 3, "E", 4, "l", "z", "e", "r", 5, "o"];
+
+mix1 = mix1
+  .map(function (ele) {
+    return isNaN(ele) ? ele : "";
+  })
+  .reduce(function (acc, current) {
+    return acc + current;
+  });
+
+console.log(mix1);
+// Elzero
+
+console.log("assignment 2=====================");
+
+let myString = "EElllzzzzzzzeroo";
+
+myNewString = myString
+  .split("")
+  .filter(function (letter, index) {
+    return myString.indexOf(letter) === index;
+  })
+  .reduce(function (acc, current) {
+    return acc + current;
+  });
+
+console.log(myNewString);
+// Elzero
+
+console.log("assingment 3===================");
+let myArray = ["E", "l", "z", ["e", "r"], "o"];
+// let sum = myArray.reduce(function (acc, current) {
+//   console.log("acc =" + acc);
+//   console.log(current);
+//   return acc.concat(current);
+// });
+
+let sum = myArray.reduce(function (acc, current) {
+  if (Array.isArray(current)) {
+    current = current.join("");
+  }
+  return acc + current;
+});
+
+console.log(sum);
+// Elzero
+
+// tasks from teacher to learn===========================================================
+result = [1, 2, 3];
+sum = result.reduce(function (acc, current) {
+  return acc + current;
+});
+
+console.log(sum);
+
+function sum2(a, b, c) {
+  return a + b + c;
+}
+console.log(sum2(1, 2, 3));
+
+function sum3(a, b, c) {
+  for (i = 0; i < sum3.length; i++) {
+    // console.log(sum3[i]);
+    result += sum3[i];
+  }
+  return result;
+}
+
+console.log(sum3(1, 2, 3));
+
+function sayHello(name) {
+  return ` Hello! ${name}🤨`;
+}
+
+console.log(sayHello("me"));
+
+function countDown(num) {
+  if (num > 0) {
+    return num;
+  }
+  console.log("num:", num);
+  countDown(num - 1);
+}
+
+//the end tasks from teacher to learn=========================================================
+
+console.log("assignment 4============================================");
+
+let numsAndStrings = [1, 10, -10, -20, 5, "A", 3, "B", "C"];
+
+let newNumsAndStrings = numsAndStrings
+  .filter(function (el) {
+    return !isNaN(el) ? el : "";
+  })
+  .map(function (element) {
+    return -element;
+  });
+console.log(newNumsAndStrings);
+// [-1, -10, 10, 20, -5, -3]
+
+console.log("assignment 5===============================================");
+
+let nums = [2, 12, 11, 5, 10, 1, 99];
+
+let oddNums = nums.reduce(function (acc, current) {
+  if (current % 2 == 0) {
+    return current * acc;
+  } else if (current % 2 !== 0) {
+    return current + acc;
+  }
+}, 1);
+
+console.log(oddNums);
+// 500
+
+//week11
+console.log("assignment1=================================================");
+// Create Your Object Here
+let member = {
+  name: "Elzero",
+  age: 38,
+  country: "Egypt",
+  fullDetails: function () {
+    return `MyName Is ${this.name} , My Age Is ${this.age} , I Live in ${this.country}`;
+  },
+};
+console.log(member.name); // Elzero
+console.log(member.age); // 38
+console.log(member.country); // Egypt
+console.log(member.fullDetails());
+// My Name Is Elzero, My Age Is 38, I Live in Egypt
+
+console.log("assignment 2==================================================");
+// Method One
+// Create Your Object Here
+let objMethodOne = {
+  property: "Method One",
+};
+console.log(objMethodOne.property); // "Method One"
+
+// Method Two
+// Create Your Object Here
+let objMethodTwo = {};
+(objMethodTwo.property = "Method Two"), console.log(objMethodTwo.property); // "Method Two"
+
+// Method Three
+// Create Your Object Here
+let objMethodThree = Object.create({});
+(objMethodThree.property = "Method Three"),
+  console.log(objMethodThree.property); // "Method Three"
+
+// Method Four
+// Create Your Object Here
+let objMethodFour = Object.assign({ property: "Method Four" });
+
+console.log(objMethodFour.property); // "Method Four"
+
+console.log("assignment 3============================================");
+let a = 1;
+
+let threeNums = {
+  b: 2,
+  c: 3,
+  d: 4,
+};
+
+let twoNums = {
+  e: 5,
+  f: 6,
+};
+
+// Create Your Object Here in One Line
+finalObject = Object.assign({}, { a }, threeNums, twoNums);
+console.log(finalObject);
+
+/*
+  a: 1
+  b: 2
+  c: 3
+  d: 4
+  e: 5
+  f: 6
+*/
+
+console.log("assignment 4 ==================================");
+
+// The Object To Work With
+let myFavGames = {
+  "Trinity Universe": {
+    publisher: "NIS America",
+    price: 40,
+  },
+  "Titan Quest": {
+    publisher: "THQ",
+    bestThree: {
+      one: "Immortal Throne",
+      two: "Ragnarök",
+      three: "Atlantis",
+    },
+    price: 50,
+  },
+  YS: {
+    publisher: "Falcom",
+    bestThree: {
+      one: "Oath in Felghana",
+      two: "Ark Of Napishtim",
+      three: "origin",
+    },
+    price: 40,
+  },
+};
+
+// Code One => How To Get Object Length ?
+let objectLength = Object.keys(myFavGames).length;
+console.log(objectLength);
+
+for (let i = 0; i < objectLength; i++) {
+  console.log(`The Game Name Is ${Object.keys(myFavGames)[i]}`);
+  console.log(`The Publisher Is ${Object.entries(myFavGames)[i][1].publisher}`);
+  console.log(`The Price Is ${Object.entries(myFavGames)[i][1].price}`);
+
+  // Check If Nested Object Has Property (bestThree)
+  if ( i > 0 && Object.keys(Object.entries(myFavGames)[1][1].bestThree).length > 0) {
+    console.log("- Game Has Releases");
+    console.log(`First => ${Object.entries(myFavGames)[i][1].bestThree.one}`);
+    console.log(`Second => ${Object.entries(myFavGames)[i][1].bestThree.two}`);
+    console.log(`Third => ${Object.entries(myFavGames)[i][1].bestThree.three}`);
+  }
+  console.log("#".repeat(20));
+}
+
+// Ouput
+
+("The Game Name Is Trinity Universe");
+("The Publisher Is NIS America");
+("The Price Is 40");
+("####################");
+("The Game Name Is Titan Quest");
+("The Publisher Is THQ");
+("The Price Is 50");
+("- Game Has Releases");
+("First => Immortal Throne");
+("Second => Ragnarök");
+("Third => Atlantis");
+("####################");
+("The Game Name Is YS");
+("The Publisher Is Falcom");
+("The Price Is 40");
+("- Game Has Releases");
+("First => Oath in Felghana");
+("Second => Ark Of Napishtim");
+("Third => origin");
+("####################");
+
+// console.log(Object.values(Object.entries(myFavGames)[0][1]));
+// console.log(Object.values(Object.entries(myFavGames)[0][1])[0]); //puplisher
+// console.log(Object.values(Object.entries(myFavGames)[0][1])[1]); //price
+
+// console.log(Object.values(Object.entries(myFavGames)[1][1]));
+// console.log(Object.values(Object.entries(myFavGames)[1][1])[0]); // puplisher
+// console.log(Object.values(Object.entries(myFavGames)[1][1])[2]); // price
+
+// console.log(Object.values(Object.entries(myFavGames)[2][1]));
+// console.log(Object.values(Object.entries(myFavGames)[2][1])[0]); // puplisher
+// console.log(Object.values(Object.entries(myFavGames)[2][1])[2]); // price
+
+// console.log(Object.values(Object.entries(myFavGames)[0][1])[0]); //puplisher
+// console.log(Object.values(Object.entries(myFavGames)[1][1])[0]); // puplisher
+// console.log(Object.values(Object.entries(myFavGames)[2][1])[0]); // puplisher
+
+// console.log(Object.values(Object.entries(myFavGames)[0][1])[1]); //price
+// console.log(Object.values(Object.entries(myFavGames)[1][1])[2]); // price
+// console.log(Object.values(Object.entries(myFavGames)[2][1])[2]); // price
+
+// console.log(Object.entries(myFavGames)[0][1].publisher);
+// console.log(Object.entries(myFavGames)[1][1].publisher);
+// console.log(Object.entries(myFavGames)[2][1].publisher);
+
+// console.log(Object.keys(Object.entries(myFavGames)[1][1].bestThree).length);
+// console.log(Object.keys(Object.entries(myFavGames)[2][1].bestThree).length);
+
+// console.log((Object.entries(myFavGames)[2][1].bestThree.one));
