@@ -236,7 +236,7 @@ Math.floor(Math.random() * 5);
 let userName = "Elzero";
 console.log(userName.charAt(0).toLowerCase()); // e
 console.log(userName[0].toLowerCase()); // e
-console.log(userName.slice(0, 1).toLowerCase()); // e
+// console.log(userName(0, 1).toLowerCase()); // e
 console.log(userName.substring(0, 1).toLowerCase()); // e
 console.log(userName.substr(0, 1).toLowerCase()); // e
 console.log(userName[0].toLowerCase().repeat(3)); // eee
@@ -1267,7 +1267,10 @@ for (let i = 0; i < objectLength; i++) {
   console.log(`The Price Is ${Object.entries(myFavGames)[i][1].price}`);
 
   // Check If Nested Object Has Property (bestThree)
-  if ( i > 0 && Object.keys(Object.entries(myFavGames)[1][1].bestThree).length > 0) {
+  if (
+    i > 0 &&
+    Object.keys(Object.entries(myFavGames)[1][1].bestThree).length > 0
+  ) {
     console.log("- Game Has Releases");
     console.log(`First => ${Object.entries(myFavGames)[i][1].bestThree.one}`);
     console.log(`Second => ${Object.entries(myFavGames)[i][1].bestThree.two}`);
@@ -1327,3 +1330,379 @@ for (let i = 0; i < objectLength; i++) {
 // console.log(Object.keys(Object.entries(myFavGames)[2][1].bestThree).length);
 
 // console.log((Object.entries(myFavGames)[2][1].bestThree.one));
+
+//week 12
+
+console.log("assignment 1 ==================================");
+
+console.log(document.querySelectorAll("div")[1]);
+console.log(document.querySelectorAll(".element")[0]);
+console.log(document.querySelectorAll("#elzero1")[0]);
+console.log(document.querySelectorAll("[name='js']")[0]);
+
+console.log(document.querySelector("div")); //return first element
+console.log(document.querySelector("[id='elzero1']"));
+console.log(document.querySelector("[name='js']"));
+console.log(document.querySelector("[class='element']"));
+
+console.log(document.getElementsByTagName("div")[1]);
+console.log(document.getElementById("elzero1"));
+console.log(document.getElementsByClassName("element")[0]);
+console.log(document.getElementsByName("js")[0]);
+
+console.log(document.body.children[2]);
+console.log(document.body.childNodes[9]);
+
+console.log("assignment 2 ==================================");
+
+let element = document.querySelectorAll("[decoding='async']");
+
+for (i = 0; i < element.length; i++) {
+  element[i].setAttribute(
+    "src",
+    "https://elzero.org/wp-content/themes/elzero/imgs/logo.png"
+  );
+  element[i].setAttribute("alt", "Elzero Logo");
+  element[i].style.cssText = "background-color:gray";
+}
+
+console.log(element);
+
+console.log("assignment 3 ==================================");
+
+let inputElement = document.querySelector("[name='dollar']");
+
+inputElement.oninput = function () {
+  let inputInDollar = (inputElement.value * 15.6).toFixed(2);
+  document.querySelector(
+    ".result"
+  ).innerHTML = `{ ${inputElement.value} } USD Dollar = {${inputInDollar}} Egyptian Pound`;
+};
+
+console.log("assignment 4 ==================================");
+
+// Select elements with classes ".one" and ".two"
+let firstDiv = document.querySelector(".one");
+let secondDiv = document.querySelector(".two");
+
+// Add "2" next to the word "Two" in the firstDiv
+let tempContent = firstDiv.textContent;
+
+console.log(--tempContent.length);
+
+// Swap the contents of the two divs
+firstDiv.innerHTML = secondDiv.innerHTML;
+secondDiv.innerHTML = tempContent + " " + --tempContent.length;
+
+// Swap the title attributes of the two divs
+let tempTitle = firstDiv.title;
+firstDiv.title = secondDiv.title;
+secondDiv.title = tempTitle;
+
+console.log(document.querySelector(".two").getAttribute("title"));
+
+console.log("assignment 5 ==================================");
+
+for (i = 0; i < 5; i++) {
+  if (document.querySelectorAll("[decoding='async1']")[i].hasAttribute("alt")) {
+    document
+      .querySelectorAll("[decoding='async1']")
+      [i].setAttribute("alt", "old");
+  } else {
+    document
+      .querySelectorAll("[decoding='async1']")
+      [i].setAttribute("alt", "Elzero New");
+  }
+}
+
+console.log("assignment 6 ==================================");
+
+//css style for the form
+let formChildren = document.querySelectorAll("form")[1].children;
+for (i = 0; i < formChildren.length; i++) {
+  if (formChildren[i] !== document.querySelector(".results")) {
+    formChildren[i].style.cssText =
+      "display: block;width: 300px;height: 40px;margin: 10px auto;padding: 5px;border: 1px solid #80808073;box-sizing: border-box;";
+  }
+}
+
+document.querySelector("[name='create']").style.cssText +=
+  "background-color:#009688e3;color:white;";
+
+// prevent create submit from refrach the page
+let results = document.querySelector(".results");
+
+document.querySelector("[name='create']").onclick = function (event) {
+  event.preventDefault();
+
+  // clear pervious resluts
+  results.innerHTML = "";
+
+  //control numbers  and content of Elements dynamic
+  let elementNumbers = document.querySelector("[name='elements']").value;
+  let elementText = document.querySelector("[name='texts']").value;
+  let elementType = document.querySelector("[name='type']").value;
+
+  // create Element
+  for (i = 1; i <= elementNumbers; i++) {
+    // create div or section depends on
+    let myElement;
+    if (elementType === "Div") {
+      myElement = document.createElement("div");
+    } else if (elementType === "Section") {
+      myElement = document.createElement("section");
+    }
+
+    myElement.setAttribute("title", "Element");
+    myElement.setAttribute("class", "box");
+    myElement.setAttribute("id", "id-" + [i]);
+
+    // append Element to the div inside the result
+    let myText = document.createTextNode(elementText);
+    myElement.appendChild(myText);
+    results.appendChild(myElement);
+
+    // css style for myElment (the resluts)
+    results.style.cssText =
+      "display:flex; width:auto-fit; margin:0 10%;justify-content:space-between;text-align: center;flex-wrap: wrap;box-sizing:border-box;";
+    myElement.style.cssText =
+      "width: 350px;height:55px;background-color: #ff6900;color: white;margin:5px; border-radius:6px;line-height:55px;";
+  }
+};
+
+// week 13
+
+console.log("assignment 1=========================================");
+// for (i = 0; i < 2; i++) {
+//   let shit = document.getElementsByClassName("open")[i];
+
+//   if (shit.textContent.includes("Elzero")) {
+//     console.log("please say hello ");
+//     window.location.href = shit.href;
+//     console.log(shit.href);
+//   }
+// }
+
+console.log("assignment 2==========================================");
+
+let addInput = document.querySelector(".classes-to-add");
+let removeInput = document.querySelector(".classes-to-remove");
+let ClassListResult = document.querySelector(".classes-list").children[1];
+
+let classNameList = [];
+
+function updateHtmlClassNames() {
+  ClassListResult.textContent = "";
+  classNameList.sort();
+  for (let i = 0; i < classNameList.length; i++) {
+    const span = document.createElement("span");
+    span.textContent = classNameList[i];
+    ClassListResult.append(span);
+  }
+  ClassListResult.className = classNameList.join(" ");
+}
+
+// // show classList in current elemnt list
+let ClassListResultSpan = document.createElement("span");
+ClassListResult.append(ClassListResultSpan);
+
+if (addInput.value === "") {
+  ClassListResultSpan.textContent = "No Classes To Show";
+}
+
+addInput.addEventListener("blur", function () {
+  const words = addInput.value.toLowerCase().split(" ");
+  for (let i = 0; i < words.length; i++) {
+    const className = words[i];
+    if (className !== "" && classNameList.includes(className) === false) {
+      //This prevents duplicates and ensures only valid class names are added.
+      classNameList.push(className);
+    }
+  }
+  updateHtmlClassNames();
+  addInput.value = "";
+  // ClassListResult.classList.add(...classNameList);
+});
+
+removeInput.addEventListener("blur", function () {
+  const words = removeInput.value.toLowerCase().split(" ");
+  for (let i = 0; i < classNameList.length; i++) {
+    if (words.includes(classNameList[i])) {
+      classNameList.splice(i, 1);
+      // option 2 - remove from html tags and update final classes sorted
+    }
+  }
+  updateHtmlClassNames();
+  removeInput.value = "";
+  // ClassListResult.classList.remove(...words);
+});
+
+// // WITHOUT SORT
+// addInput.addEventListener("blur",function(){
+//   const words = addInput.value.toLowerCase().split(" ")
+//   for (let i = 0; i < words.length; i++){
+//     const className = words[i]
+//     if (className !== '' && ClassListResult.textContent.includes(className) === false) {
+//       const span = document.createElement("span")
+//       span.textContent = className
+//       ClassListResult.append(span)
+//     }
+//   }
+//   addInput.value = ''
+// })
+
+console.log("assignment 3==========================================");
+//remove pargrapgh
+let myP = document.querySelectorAll("p")[0];
+myP.remove();
+
+// create elment beofre and after the div
+let ourElement = document.querySelector(".our-element");
+
+let myDivStart = document.createElement("div");
+myDivStart.className = "start";
+myDivStart.textContent = "Start";
+myDivStart.setAttribute("title", "Start Element");
+myDivStart.setAttribute("data-value", "Start");
+
+let myDivEnd = document.createElement("div");
+myDivEnd.className = "end";
+myDivEnd.textContent = "End";
+myDivEnd.setAttribute("title", "End Element");
+myDivEnd.setAttribute("data-value", "End");
+
+// add Elment befor or after the div out of div not inside it
+ourElement.after(myDivEnd);
+ourElement.before(myDivStart);
+
+console.log("assignment 4==========================================");
+console.log(document.querySelectorAll("div")[23].lastChild.nodeValue.trim()); // its remove the new line and the space its really superhero 😎
+
+console.log("assignment 5=============================================");
+
+document.querySelectorAll("div")[24].onclick = function () {
+  console.log("This is div");
+};
+
+document.querySelectorAll("span")[1].onclick = function () {
+  console.log("This is sapn");
+};
+
+document.querySelectorAll("p")[0].onclick = function () {
+  console.log("This is p");
+};
+
+document.querySelectorAll("section")[0].onclick = function () {
+  console.log("This is section");
+};
+
+document.querySelectorAll("article")[0].onclick = function () {
+  console.log("This is article");
+};
+
+// my teacher task  I have a smaller task for you..
+//  create an empty page, add a input text element there...
+//  and when the user focus on the input your page background color will be green,
+//  and when the user move the focus away - blur event listener - your page background color wil be gray
+// not you can try to get the input of what the user typed and set the text as the background color of your page 😉
+
+let myInput = document.createElement("input");
+document.body.append(myInput);
+
+myInput.addEventListener("input", function () {
+  document.body.style.backgroundColor = myInput.value;
+});
+
+myInput.addEventListener("blur", function () {
+  document.body.style.backgroundColor = "gray";
+  console.log(myInput.value);
+});
+
+//week 14
+console.log("assignment 1 ================================ 14");
+
+// let promptMsg = prompt("Print Number From - To", "Example: 5-20");
+
+// promptMsg = promptMsg.split("-");
+// promptMsg = promptMsg.map(Number);
+// console.log(promptMsg); // turn to array and saperte each single letter
+
+// for (i = 0; i < promptMsg.length; i++) {
+//   let max;
+//   let min;
+
+//   if (promptMsg[0] > promptMsg[1]) {
+//     max = promptMsg[0];
+//   } else {
+//     max = promptMsg[1];
+//   }
+
+//   if (promptMsg[0] < promptMsg[1]) {
+//     min = promptMsg[0];
+//   } else {
+//     min = promptMsg[1];
+//   }
+
+//   for (j = 0; j < max; j++) {
+//     console.log(min++);
+//     if (min > max) {
+//       break;
+//     }
+//   }
+//   break;
+// }
+
+// let promptMsg = prompt("Print Number From - To", "Example: 5-20");
+// let [num_1, num_2] = promptMsg.split("-").map(Number);
+
+// let min = Math.min(num_1, num_2);
+// let max = Math.max(num_1, num_2);
+
+// console.log(`Range: ${min} to ${max}`);
+
+// for (let i = min; i <= max; i++) {
+//   console.log(i);
+// }
+
+console.log("assignment 2==============================14");
+let createPopup = document.createElement("div");
+createPopup.textContent = "Welcome";
+createPopup.className = "createPopup";
+
+let createPopupParagraph = document.createElement("p");
+createPopupParagraph.textContent = "Welcome To Elzero Web School🐄😭";
+
+createPopup.append(createPopupParagraph);
+document.body.append(createPopup);
+
+//create the exit button
+let iconXmark = document.querySelector(".fa-xmark");
+iconXmark.style.display = "none";
+
+window.onload = setTimeout(function () {
+  createPopup.style.display = "block";
+  iconXmark.style.display = "block";
+}, 5000);
+
+iconXmark.onclick = function () {
+  createPopup.style.display = "none";
+  iconXmark.style.display = "none";
+};
+
+console.log("assignment 3=======================================14");
+// let divTen = document.createElement("div");
+// divTen.textContent = 3;
+
+// document.body.append(divTen);
+  
+// function countdown() {
+//   divTen.innerHTML -= 1;
+//   if (divTen.innerHTML === "0") {
+//     clearInterval(counter4);
+//     window.open(
+//       "https://elzero.org/javascript-bootcamp-assignments-lesson-from-102-to-110/#google_vignette" , "" , "width=400,height=400,left=600,top=118"
+//     );
+//   }
+// }
+
+// let counter4 = setInterval(countdown, 1000);
